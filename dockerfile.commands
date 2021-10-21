@@ -72,6 +72,9 @@ docker logs <nome ou id do conatiner>  <-- mostrara os logs e volta ao terminal
 docker logs -f  <nome ou id do conatiner>  <-- fica com o terminal preso mostrando os logs
 
 
+VERIFICANDO PROCESSAMENTO DO CONTAINER:
+
+docker top <nome ou id do container>
 
 
 
