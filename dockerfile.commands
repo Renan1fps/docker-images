@@ -1,0 +1,81 @@
+BUILD: 
+
+{
+  FROM imagem_exemplo  <-- passamos uma imagem para ser usada de exemplo
+
+  WORKDIR  /app  <-- diretório que ficará a aplicação
+
+  COPY package.json ./  <-- nesse exemplo de node copio o package das dependências para dentro da pasta do app
+
+  RUN npm install  <-- instalo as depedências do projeto (serve para executar algum comando, podendo ter vários RUN)
+
+  COPY . . <-- copio todos os arquivos da aplicação para dentro do /app
+
+  EXPOSE 8080  <-- estou expondo a porta do meu container (expor a mesma porta da aplicação para não ter erros)
+
+  CMD ["node", "./src/index.js"]  <-- array de comandos a serem executados (precisa ser array e separado por virgula e aspas)
+}
+
+Build de images: docker build .  <-- estou criando a imagem a partir do dockerfile que está nessa pasta
+
+Build de images com nome e tag: docker build -t exemplo_name:tag .  <-- criando imagem com nome e tag
+
+
+EXECUÇÃO DE CONTAINER A PARTIR DE UMA IMAGEM:
+
+Imagem que criamos: docker run <nome ou id da imagem>  <--executa o container mas ainda não é possível ver a aplicação
+
+Imagem expondo portas: docker run  -d -p 8080:8080 <nome ou id da imagem>  <-- o -d faz com que ele fique rodando em background e o -p passo a porta do meu pc em que eu acessar vai acessar o container
+
+Executando e nomeando imagem: docker run -d -p 8080:8080  --name <nome que deseja> <nome ou id da imagem>
+
+
+VER CONATAINERS EM EXECUÇÃO: 
+
+docker ps ou docker container ps
+
+docker ps -a  <-- containers que rodaram mas estão parados
+
+
+PARAR OU INICIAR UM CONTAINER:
+
+docker start <nome ou id do container>
+
+docker stop <nome ou id do conatiner>
+  
+
+VER IMAGES:
+
+docker images ou docker image ls
+
+
+REMOVER IMAGES:
+
+docker rmi <nome ou id da imagem>  <-- dará um erro pois a imagem está atrelada a um container então temos que usar o -f :
+docker rmi -f <nome ou id da imagem>
+
+
+NOMEAR IMAGES: 
+
+docker tag <id da imagem> <nome da imagem>  <--é possivél passar a tag também logo após o nome: nome:tag
+
+
+REMOVER IMAGES E CONTAINER QUE NÃO SÃO MAIS USADOS
+
+docker system prune  <-- será exigido uma confirmação
+
+
+VER LOGS DO CONTAINER:
+
+docker logs <nome ou id do conatiner>  <-- mostrara os logs e volta ao terminal
+
+docker logs -f  <nome ou id do conatiner>  <-- fica com o terminal preso mostrando os logs
+
+
+
+
+
+
+
+
+
