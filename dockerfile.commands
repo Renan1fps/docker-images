@@ -77,6 +77,11 @@ VERIFICANDO PROCESSAMENTO DO CONTAINER:
 docker top <nome ou id do container>
 
 
+VERIFICANDO PROCESSAMENTO DO DOCKER:
+
+docker stats  <-- esse comando me dira quanto de memória, cpu e entre outros dados que meus containers estão consumindo da maquina
+
+
 
 
 
