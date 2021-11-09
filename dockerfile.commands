@@ -81,6 +81,8 @@ VERIFICANDO PROCESSAMENTO DO DOCKER:
 
 docker stats  <-- esse comando me dira quanto de memória, cpu e entre outros dados que meus containers estão consumindo da maquina
 
+docker compose: docker-compose up -d
+
 
 
 
