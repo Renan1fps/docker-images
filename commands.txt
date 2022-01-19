@@ -1,4 +1,4 @@
-BUILD: 
+                     >>>>>>>>>>>>>>>>>>>>>BUILD<<<<<<<<<<<<<<<<<<<<<<<<<
 
 {
   FROM imagem_exemplo  <-- passamos uma imagem para ser usada de exemplo
@@ -14,12 +14,15 @@ BUILD:
   EXPOSE 8080  <-- estou expondo a porta do meu container (expor a mesma porta da aplicação para não ter erros)
 
   CMD ["node", "./src/index.js"]  <-- array de comandos a serem executados (precisa ser array e separado por virgula e aspas)
-}
+} 
 
 Build de images: docker build .  <-- estou criando a imagem a partir do dockerfile que está nessa pasta
 
 Build de images com nome e tag: docker build -t exemplo_name:tag .  <-- criando imagem com nome e tag
 
+
+
+        >>>>>>>>>>>>>>>>>>>>>>>>>>EXECUÇÃO DE CONTAINER A PARTIR DE UMA IMAGEM<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 EXECUÇÃO DE CONTAINER A PARTIR DE UMA IMAGEM:
 
@@ -30,58 +33,69 @@ Imagem expondo portas: docker run  -d -p 8080:8080 <nome ou id da imagem>  <-- o
 Executando e nomeando imagem: docker run -d -p 8080:8080  --name <nome que deseja> <nome ou id da imagem>
 
 
-VER CONATAINERS EM EXECUÇÃO: 
+                >>>>>>>>>>>>>>>>>>>>>>>>>>>>VER CONATAINERS EM EXECUÇÃO: <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 docker ps ou docker container ps
 
 docker ps -a  <-- containers que rodaram mas estão parados
 
 
-PARAR OU INICIAR UM CONTAINER:
+           >>>>>>>>>>>>>>>>>>>>>>>>>>>>>PARAR OU INICIAR UM CONTAINER:<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 docker start <nome ou id do container>
 
 docker stop <nome ou id do conatiner>
   
 
-VER IMAGES:
+                    >>>>>>>>>>>>>>>>>>>>>VER IMAGES:<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 docker images ou docker image ls
 
 
-REMOVER IMAGES:
+                  >>>>>>>>>>>>>>>>>>>REMOVER IMAGES:<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 docker rmi <nome ou id da imagem>  <-- dará um erro pois a imagem está atrelada a um container então temos que usar o -f :
 docker rmi -f <nome ou id da imagem>
 
 
-NOMEAR IMAGES: 
+                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>NOMEAR IMAGES:<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 docker tag <id da imagem> <nome da imagem>  <--é possivél passar a tag também logo após o nome: nome:tag
 
 
-REMOVER IMAGES E CONTAINER QUE NÃO SÃO MAIS USADOS
+         >>>>>>>>>>>>>>>>>>REMOVER IMAGES E CONTAINER QUE NÃO SÃO MAIS USADOS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 docker system prune  <-- será exigido uma confirmação
 
 
-VER LOGS DO CONTAINER:
+               >>>>>>>>>>>>>>>>>>>>>>>>VER LOGS DO CONTAINER:<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 docker logs <nome ou id do conatiner>  <-- mostrara os logs e volta ao terminal
 
 docker logs -f  <nome ou id do conatiner>  <-- fica com o terminal preso mostrando os logs
 
 
-VERIFICANDO PROCESSAMENTO DO CONTAINER:
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>VERIFICANDO PROCESSAMENTO DO CONTAINER:<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 docker top <nome ou id do container>
 
 
-VERIFICANDO PROCESSAMENTO DO DOCKER:
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VERIFICANDO PROCESSAMENTO DO DOCKER:<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-docker stats  <-- esse comando me dira quanto de memória, cpu e entre outros dados que meus containers estão consumindo da maquina
+docker status  <-- esse comando me dira quanto de memória, cpu e entre outros dados que meus containers estão consumindo da maquina
+
+             >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>DOCKER COMPOSE<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 docker compose: docker-compose up -d
+
+
+                 >>>>>>>>>EXECUTANDO COMANDOS LINUX NO CONTAINER<<<<<<<<<<<<<<<<<<<<<<<
+Se quiser executar algo dentro do container é só executar o seguinte comando:
+docker exec -it <node || id> /bin/bash <--- nesse caso estou executando o bash.
+para que eu possa executar algum comando preciso atualizar os pacotes usando: apt update && apt upgrade -y
+e depois é só instalar algum pacote caso necessario, com o comando: apt -y install <pacote>
+
+
 
 
 
