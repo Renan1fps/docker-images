@@ -95,9 +95,9 @@ docker exec -it <node || id> /bin/bash <--- nesse caso estou executando o bash.
 para que eu possa executar algum comando preciso atualizar os pacotes usando: apt update && apt upgrade -y
 e depois é só instalar algum pacote caso necessario, com o comando: apt -y install <pacote>
 
+                 >>>>>>>>>>>>>>>>>Limpar<<<<<<<<<<<<<<<<
 
-
-
+docker system prune all
 
 
 
