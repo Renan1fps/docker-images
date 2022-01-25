@@ -96,8 +96,10 @@ para que eu possa executar algum comando preciso atualizar os pacotes usando: ap
 e depois é só instalar algum pacote caso necessario, com o comando: apt -y install <pacote>
 
                  >>>>>>>>>>>>>>>>>Limpar<<<<<<<<<<<<<<<<
-
+esse comando irá excluir containers que não estão em uso e ocupando espaço
 docker system prune all
+
+
 
 
 
