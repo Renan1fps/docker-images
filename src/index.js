@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(urlencoded({ extended: true }))
 
 app.get("/test", async (req, res) => {
-  res.send('ok2')
+  res.send(`API online ${new Date()}`)
 })
 
 app.listen(4014, () => {
