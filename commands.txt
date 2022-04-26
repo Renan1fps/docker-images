@@ -99,6 +99,8 @@ e depois é só instalar algum pacote caso necessario, com o comando: apt -y ins
 esse comando irá excluir containers que não estão em uso e ocupando espaço
 docker system prune all ou só docker system prune 
 
+Docker remove é mais aconselhado 
+
 
 
 
